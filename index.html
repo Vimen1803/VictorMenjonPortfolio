@@ -189,7 +189,10 @@ nav {
   width: 18px;
   height: 18px;
 }
-
+.language-options div.selected {
+  border-radius: 8px;
+  background-color: rgba(255,45,45,0.1); /* opcional, un ligero fondo */
+}
 /* SECCIONES */
 section {
   position: relative;
@@ -1154,7 +1157,12 @@ const optionDivs = options.querySelectorAll('div[data-lang]');
 function actualizarOpcionesVisibles() {
   const currentLang = selected.getAttribute('data-lang');
   optionDivs.forEach(opt => {
-    opt.style.display = opt.getAttribute('data-lang') === currentLang ? 'none' : 'flex';
+    if (opt.getAttribute('data-lang') === currentLang) {
+      opt.classList.add('selected'); // agregar clase para estilo de seleccionado
+    } else {
+      opt.classList.remove('selected');
+    }
+    opt.style.display = 'flex'; // siempre mostrar todos
   });
 }
 
