@@ -709,7 +709,7 @@ particlesJS('particles-js',{
 
 // --- TYPEWRITER ---
 function typeText(el, text, speed=18){
-  el.innerHTML = ''; // Limpiamos contenido previo
+  el.innerHTML = '';
   el.style.visibility = 'visible';
   const cursor = document.createElement('span');
   cursor.className = 'cursor';
@@ -778,12 +778,9 @@ const menuToggle=document.getElementById('menu-toggle');
 const menu=document.getElementById('menu');
 menuToggle.addEventListener('click',()=>{menu.classList.toggle('show');});
 menu.querySelectorAll('a').forEach(a=>{ a.addEventListener('click', ()=>{ menu.classList.remove('show'); }); });
-// --- Cerrar menú al hacer clic fuera ---
 document.addEventListener('click', (e) => {
   const isClickInside = menu.contains(e.target) || menuToggle.contains(e.target);
-  if (!isClickInside) {
-    menu.classList.remove('show');
-  }
+  if (!isClickInside) menu.classList.remove('show');
 });
 
 // --- EMAILJS ---
@@ -798,12 +795,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const mensaje = form.mensaje.value.trim();
     emailjs.send("service_4p1yfgr", "template_dpssliw", {from_name: nombre, from_email: "victormnjfan@gmail.com", reply_to: email, subject: asunto, message: mensaje})
       .then(() => { 
-      form.reset(); 
-      mostrarPopup(form.dataset.popupEnviado, false); 
-    })
-    .catch((err) => { 
-      mostrarPopup(form.dataset.popupError, true); 
-    });
+        form.reset(); 
+        mostrarPopup(form.dataset.popupEnviado, false); 
+      })
+      .catch((err) => { 
+        mostrarPopup(form.dataset.popupError, true); 
+      });
   });
 
   function mostrarPopup(texto, esError=false){
@@ -1068,59 +1065,48 @@ const texts = {
     banner: "img/banner/banner_PT.png"
   }
 };
-
 // --- ACTUALIZAR FORMACIÓN ---
 function updateFormacion(lang){
   const cardContainer = document.querySelector('#formacion .formacion');
   if(!cardContainer) return;
   cardContainer.innerHTML='';
-
   texts[lang].estudios.forEach(est=>{
     const card = document.createElement('div');
     card.className = 'fo-card';
-
     let html = `<h3>${est.titulo}</h3>`;
     est.datos.forEach(d=>{
       if(d.label) html += `<p class="muted"><strong>${d.label}:</strong> ${d.value}</p>`;
       else html += `<p class="muted">${d.value}</p>`;
     });
-
     card.innerHTML = html;
     cardContainer.appendChild(card);
   });
 }
 
-// --- CAMBIO DE IDIOMA (integrado con el dropdown personalizado) ---
+// --- CAMBIO DE IDIOMA ---
 const dropdown = document.getElementById('language-selector');
 const selected = dropdown.querySelector('.language-selected');
 const options = dropdown.querySelector('.language-options');
 
 function changeLanguage(lang){
-  // Menú
   menuLinks.forEach((link,i)=>{
     link.setAttribute('data-typer',texts[lang].menu[i]);
     link.textContent='';
     typeText(link,texts[lang].menu[i],18);
   });
 
-  // Secciones
   document.querySelector('#info .typewriter').setAttribute('data-typer',texts[lang].info);
   document.querySelector('#hab-apt .typewriter').setAttribute('data-typer',texts[lang].habilidades);
   document.querySelector('#formacion .typewriter').setAttribute('data-typer',texts[lang].formacion);
   document.querySelector('#portfolio .typewriter').setAttribute('data-typer',texts[lang].portfolio);
   document.querySelector('#contacto .typewriter').setAttribute('data-typer',texts[lang].contacto);
 
-  // CV
   cvButton.setAttribute('href',`CV/CV_Victor_Menjon_${lang.toUpperCase()}.pdf`);
   cvButton.textContent=texts[lang].cv;
 
-  // Banner
   const bannerImg = document.querySelector('#info .banner');
-  if (texts[lang].banner) {
-    bannerImg.setAttribute('src', texts[lang].banner);
-  }
+  if (texts[lang].banner) bannerImg.setAttribute('src', texts[lang].banner);
 
-  // Portfolio
   const portfolioItems=document.querySelectorAll('.portfolio-item');
   portfolioItems.forEach((item,i)=>{
     if(texts[lang].proyectos[i]){
@@ -1129,7 +1115,6 @@ function changeLanguage(lang){
     }
   });
 
-  // Formulario
   const form=document.querySelector('#contacto form');
   form.nombre.placeholder=texts[lang].formulario.nombre;
   form.email.placeholder=texts[lang].formulario.email;
@@ -1139,10 +1124,8 @@ function changeLanguage(lang){
   form.dataset.popupEnviado = texts[lang].formulario.mensajeEnviado;
   form.dataset.popupError = texts[lang].formulario.errorEnvio;
 
-  // Formación
   updateFormacion(lang);
 
-  // Re-disparar typewriters
   queueWriters([
     document.querySelector('#info .typewriter'),
     document.querySelector('#hab-apt .typewriter'),
@@ -1152,15 +1135,13 @@ function changeLanguage(lang){
   ]);
 }
 
-// Conectar opciones del dropdown
+// --- DROPDOWN IDIOMA ---
 selected.addEventListener('click', (e) => {
   const isOpen = dropdown.classList.toggle('open');
   dropdown.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  // controlar aria-hidden del panel de opciones
   options.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
 });
 
-// Cerrar dropdown si se hace click fuera
 document.addEventListener('click', (e) => {
   if(!dropdown.contains(e.target)){
     dropdown.classList.remove('open');
@@ -1169,17 +1150,11 @@ document.addEventListener('click', (e) => {
   }
 });
 
-// --- Selección real de idioma ---
 const optionDivs = options.querySelectorAll('div[data-lang]');
-
 function actualizarOpcionesVisibles() {
   const currentLang = selected.getAttribute('data-lang');
   optionDivs.forEach(opt => {
-    if (opt.getAttribute('data-lang') === currentLang) {
-      opt.style.display = 'none'; // ocultar el idioma actual
-    } else {
-      opt.style.display = 'flex'; // mostrar el resto
-    }
+    opt.style.display = opt.getAttribute('data-lang') === currentLang ? 'none' : 'flex';
   });
 }
 
@@ -1193,21 +1168,29 @@ optionDivs.forEach(opt => {
     dropdown.classList.remove('open');
     dropdown.setAttribute('aria-expanded', 'false');
     options.setAttribute('aria-hidden', 'true');
+    
     changeLanguage(lang);
-    actualizarOpcionesVisibles(); // actualizar visibilidad al cambiar
+    actualizarOpcionesVisibles();
+
+    // Guardar preferencia
+    localStorage.setItem('preferredLang', lang);
   });
 });
 
-// Llamar al inicio para ocultar el actual
+// --- INICIALIZAR IDIOMA SEGÚN PREFERENCIA ---
 actualizarOpcionesVisibles();
-
-// Inicializamos en el idioma indicado por el selector (por defecto 'es' en el HTML)
 (function initLanguage(){
-  const initLang = selected.getAttribute('data-lang') || 'es';
-  // Aseguramos que el CV y textos estén en el idioma inicial
+  let initLang = localStorage.getItem('preferredLang') || 'en';
+
+  const opt = options.querySelector(`div[data-lang="${initLang}"]`);
+  const svg = opt && opt.querySelector('svg') ? opt.querySelector('svg').outerHTML : '';
+  const text = opt ? opt.textContent.trim() : initLang.toUpperCase();
+  selected.innerHTML = svg + ' ' + text;
+  selected.setAttribute('data-lang', initLang);
+
   changeLanguage(initLang);
+  actualizarOpcionesVisibles();
 })();
 </script>
 </body>
 </html>
-
