@@ -216,16 +216,21 @@ h2 {
 /* Banner superior */
 #info .wrap .banner {
   width: 100%;
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
   border-radius: 16px;
   margin: 0 auto;
 }
-#info .banner {
-  border-radius: 16px;
+#info > .banner {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  border-radius: 16px; /* si no quieres bordes redondeados a los lados */
+  margin: 0;
 }
+
 #info .wrap { display: flex; flex-direction: column; gap: 10px; }
 #info .wrap p.typewriter {
   min-height: 60px;
@@ -455,7 +460,7 @@ button:hover { background: #e22020; }
 @media(max-width: 1496px){
   .nav-inner {width: 95%;}
   section {padding: 60px 0;}
-  #info .wrap .banner {max-width: 95%; margin: 0 auto;}
+  #info .wrap .banner {max-width: 100%; margin: 0 auto;}
   #info img{max-width: 90%; margin: 0 auto;}
   .contact-grid {grid-template-columns: 1fr; width: 100%; margin: 0 auto; gap: 30px; }
   .link-list {flex-direction: row; justify-content: center; flex-wrap: wrap;}
@@ -582,8 +587,8 @@ button:hover { background: #e22020; }
 </nav>
 
 <section id="info">
-  <img class="banner" src="img/banner/banner_ES.png" alt="Banner de Víctor Menjón">
   <div class="wrap">
+    <img class="banner" src="img/banner/banner_ES.png" alt="Banner de Víctor Menjón">
     <p class="typewriter" data-typer="Tengo 19 años y soy estudiante de Ingeniería Informática, apasionado por la programación, la Inteligencia Artificial y la Ciberseguridad.
 Me considero constante, proactivo y autodidacta, siempre motivado por aprender y afrontar nuevos retos tecnológicos."></p>
     <a href="CV_Victor_Menjon.pdf" download class="btn-cv">Descargar CV</a>
@@ -1202,6 +1207,3 @@ actualizarOpcionesVisibles();
 </script>
 </body>
 </html>
-
-
-
