@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Víctor Menjón | Portfolio Ingeniería Informática</title>
+  <meta name="description" content="Portfolio de Víctor Menjón, estudiante de Ingeniería Informática. Proyectos de programación, IA y ciberseguridad.">
+  <meta name="keywords" content="Víctor Menjón, portfolio, ingeniería informática, programación, IA, ciberseguridad">
+  <meta name="author" content="Víctor Menjón">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Víctor Menjón | Portfolio Ingeniería Informática">
+  <meta property="og:description" content="Portfolio de Víctor Menjón, estudiante de Ingeniería Informática. Proyectos de programación, IA y ciberseguridad.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Vimen1803/VictorMenjonPortfolio/refs/heads/main/foto.jpg">
+  <meta property="og:url" content="https://victormenjonportfolio.com">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Viiictooor18">
+  <meta name="twitter:creator" content="@Viiictooor18">
+  <meta name="twitter:title" content="Víctor Menjón | Portfolio Ingeniería Informática">
+  <meta name="twitter:description" content="Portfolio de Víctor Menjón, estudiante de Ingeniería Informática. Proyectos de programación, IA y ciberseguridad.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/Vimen1803/VictorMenjonPortfolio/refs/heads/main/foto.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://img.icons8.com/?size=100&id=65958&format=png&color=000000" type="image/x-icon">
+
+  <!-- 🔑 Datos estructurados (Schema.org) -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Víctor Menjón",
+  "jobTitle": "Estudiante de Ingeniería Informática",
+  "url": "https://vimen1803.github.io/VictorMenjonPortfolio",
+  "image": "https://raw.githubusercontent.com/Vimen1803/VictorMenjonPortfolio/refs/heads/main/foto.jpg",
+  "alumniOf": "Universidad de Zaragoza",
+  "sameAs": [
+    "https://github.com/Vimen1803",
+    "https://www.linkedin.com/in/víctor-menjón-fandos-925616293"
+  ],
+  "knowsAbout": ["Programación", "Inteligencia Artificial", "Ciberseguridad", "Desarrollo Web", "C++", "Python", "Django", "JSON", "HTML", "CSS"]
+  }
+  </script>
+
+<style>
+/* VARIABLES */
+:root {
+  --bg: #000;
+  --fg: #f5f5f5;
+  --muted: #bfbfbf;
+  --accent: #ff2d2d;
+  --card: rgba(255, 255, 255, 0.06);
+  --card-border: rgba(255, 255, 255, 0.14);
+}
+
+/* GENERAL */
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Fondo partículas */
+#particles-js { position: fixed; inset: 0; z-index: -2; }
+.backdrop { 
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(1000px 600px at 15% 15%, rgba(255, 45, 45, .08), transparent 60%),
+              radial-gradient(900px 500px at 85% 85%, rgba(255, 45, 45, .06), transparent 60%);
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--card-border);
+  height: 60px;
+}
+.nav-inner {
+  max-width: 1400px;
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.brand { font-weight: 800; white-space: nowrap; }
+.brand b { color: var(--accent); }
+
+.menu {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+.menu a {
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: .2s;
+  white-space: nowrap;
+}
+.menu a:hover { color: var(--accent); background: rgba(255,45,45,.1); }
+
+/* BOTON HAMBURGUESA */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: var(--fg);
+  border-radius: 2px;
+}
+
+/* Idioma personalizado (reemplaza el select) */
+.language-dropdown {
+  position: relative;
+  user-select: none;
+}
+.language-selected {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  background: #000;
+  transition: background 0.2s, color 0.2s;
+}
+.language-selected:hover {
+  background: #222;
+  color: var(--accent);
+}
+.language-options {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #000;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 20;
+  min-width: 180px;
+}
+.language-options div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.language-options div:hover {
+  background: #222;
+  color: var(--accent);
+}
+.language-dropdown.open .language-options {
+  display: block;
+}
+.language-options svg,
+.language-selected svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* SECCIONES */
+section {
+  position: relative;
+  min-height: 100vh;
+  padding: 80px 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.wrap {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+h2 {
+  margin: 0 0 24px;
+  font-size: clamp(22px, 3vw, 30px);
+  color: #fff;
+}
+
+/* Banner superior */
+#info .wrap .banner {
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 16px;
+  margin: 0 auto;
+}
+#info .banner {
+  border-radius: 16px;
+}
+#info .wrap { display: flex; flex-direction: column; gap: 10px; }
+#info .wrap p.typewriter {
+  min-height: 60px;
+  visibility: visible !important;
+  white-space: pre-wrap;
+  margin-top: 100px;
+}
+.btn-cv {
+  display: inline-block;
+  margin: 0 auto;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--fg);
+  background: rgba(255, 45, 45, 0.1);
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+.btn-cv:hover, .btn-cv:focus { background: var(--accent); color: #000; outline: none; }
+
+/* Typewriter */
+.typewriter[data-typer] { visibility: hidden; white-space: pre-wrap; }
+.cursor {
+  display: inline-block;
+  width: 10px;
+  margin-left: 2px;
+  border-right: 2px solid var(--accent);
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { border-color: transparent } }
+
+/* HABILIDADES */
+.ha-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  width: 100%;
+}
+.ha-item {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  padding: 16px;
+  transition: transform 0.2s ease;
+}
+.ha-item:hover { transform: translateY(-4px); }
+.ha-item img { width: 50%; height: auto; }
+
+.ha-item h3 { margin: 8px 0 0; }
+
+/* FORMACIÓN */
+.formacion { display: flex; flex-direction: column; gap: 20px; }
+.fo-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
+.fo-card h3 { margin: 0 0 10px; color: var(--accent); }
+.fo-card p { margin: 6px 0; }
+.fo-card .muted { color: var(--muted); }
+
+/* PORTFOLIO */
+.portfolio-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(346px, 1fr));
+  width: 100%;
+}
+.portfolio-item {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  overflow: hidden;
+  height: 320px;
+  transition: .25s;
+}
+.portfolio-item:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(255,45,45,.14); }
+.portfolio-banner {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  display: block;
+  background: #111;
+}
+.portfolio-content {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 40%;
+  padding: 16px 18px;
+  text-align: left;
+}
+.portfolio-title {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 20px;
+}
+.portfolio-desc {
+  margin: 0;
+  color: #d9d9d9;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* CONTACTO */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 150px;
+  width: 100%;
+  max-width: 1496px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: start;
+}
+form {
+  max-width: 100%;
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+}
+input, textarea {
+  background: rgba(255, 255, 255, .06);
+  color: var(--fg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 16px;
+}
+textarea { resize: none; min-height: 200px; }
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+}
+button:hover { background: #e22020; }
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 100%;
+}
+.link-row {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+}
+.link-row a {
+  color: var(--fg);
+  text-decoration: none;
+  font-weight: 700;
+}
+.link-row a:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media(max-width: 820px){
+  .menu { 
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 12px;
+    border-radius: 0 0 12px 12px;
+    background: rgba(0,0,0,.9);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  }
+  .menu.show {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 👉 Ajustes */
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* los extremos se separan */
+  }
+  .language-dropdown {
+    order: 1;
+    margin: 0;
+    margin-left: auto;  /* empuja el selector hacia la derecha */
+  }
+  .menu-toggle { 
+    display: flex; 
+    order: 2;
+    margin-left: 10px; /* pequeño espacio entre selector y hamburguesa */
+  }
+  .ha-grid {grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));}
+}
+@media(max-width: 1496px){
+  .nav-inner {width: 95%;}
+  section {padding: 60px 0;}
+  #info .wrap .banner {max-width: 95%; margin: 0 auto;}
+  #info img{max-width: 90%; margin: 0 auto;}
+  .contact-grid {grid-template-columns: 1fr; width: 100%; margin: 0 auto; gap: 30px; }
+  .link-list {flex-direction: row; justify-content: center; flex-wrap: wrap;}
+  .link-row {flex: 1 1 200px;}
+  #info .wrap {gap: 16px;}
+  form{width: unset;}
+}
+</style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+<div class="backdrop"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand"><h1>Víctor <b>Menjón</b></h1></div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="menu" id="menu">
+      <a href="#info">Información</a>
+      <a href="#hab-apt">Habilidades</a>
+      <a href="#formacion">Formación</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- REEMPLAZO: selector personalizado con SVGs -->
+    <div class="language-dropdown" id="language-selector" aria-haspopup="true" aria-expanded="false">
+      <div class="language-selected" data-lang="es" aria-label="Idioma actual">
+        <!-- SVG bandera España (simple) -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32" role="img" aria-hidden="true">
+          <rect width="48" height="32" fill="#AA151B"/>
+          <rect y="10.666" width="48" height="10.667" fill="#F1BF00"/>
+        </svg>
+        Español
+      </div>
+      <div class="language-options" role="menu" aria-hidden="true">
+        <div data-lang="es" role="menuitem">
+            <!-- SVG bandera España -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32" aria-hidden="true">
+            <rect width="48" height="32" fill="#AA151B"/>
+            <rect y="10.666" width="48" height="10.667" fill="#F1BF00"/>
+            </svg>
+            Español
+        </div>
+        <div data-lang="en" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" aria-hidden="true">
+            <rect width="60" height="30" fill="#012169"/>
+            <path d="M0 0 L60 30 M60 0 L0 30" stroke="#fff" stroke-width="6"/>
+            <path d="M0 0 L60 30 M60 0 L0 30" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30 0 V30 M0 15 H60" stroke="#fff" stroke-width="10"/>
+            <path d="M30 0 V30 M0 15 H60" stroke="#C8102E" stroke-width="6"/>
+          </svg>
+          English
+        </div>
+        <div data-lang="ca" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+            <rect width="512" height="512" fill="#fcdd09"/>
+            <g fill="#da121a">
+              <rect y="0" width="512" height="73"/>
+              <rect y="146" width="512" height="73"/>
+              <rect y="292" width="512" height="73"/>
+              <rect y="438" width="512" height="73"/>
+            </g>
+          </svg>
+          Català
+        </div>
+        <div data-lang="pt" role="menuitem">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" aria-hidden="true">
+                <rect width="240" height="400" fill="#006600"/> <!-- Verde -->
+                <rect x="240" width="360" height="400" fill="#ff0000"/> <!-- Rojo -->
+                <!-- Escudo simplificado -->
+                <circle cx="240" cy="200" r="70" fill="#ffcc00" stroke="#000" stroke-width="2"/>
+                <circle cx="240" cy="200" r="45" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+                <rect x="225" y="170" width="30" height="60" fill="#003399"/>
+                <circle cx="235" cy="185" r="5" fill="#ffffff"/>
+                <circle cx="245" cy="185" r="5" fill="#ffffff"/>
+                <circle cx="235" cy="195" r="5" fill="#ffffff"/>
+                <circle cx="245" cy="195" r="5" fill="#ffffff"/>
+                <circle cx="240" cy="205" r="5" fill="#ffffff"/>
+            </svg>
+            Português
+        </div>
+        <div data-lang="fr" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" aria-hidden="true">
+            <rect width="1" height="2" x="0" fill="#0055a4"/>
+            <rect width="1" height="2" x="1" fill="#fff"/>
+            <rect width="1" height="2" x="2" fill="#ef4135"/>
+          </svg>
+          Français
+        </div>
+        <div data-lang="it" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" aria-hidden="true">
+            <rect width="1" height="2" x="0" fill="#009246"/>
+            <rect width="1" height="2" x="1" fill="#fff"/>
+            <rect width="1" height="2" x="2" fill="#ce2b37"/>
+          </svg>
+          Italiano
+        </div>
+        <div data-lang="de" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" aria-hidden="true">
+            <rect width="5" height="1" y="0" fill="#000"/>
+            <rect width="5" height="1" y="1" fill="#DD0000"/>
+            <rect width="5" height="1" y="2" fill="#FFCE00"/>
+          </svg>
+          Deutsch
+        </div>
+        <div data-lang="ru" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" aria-hidden="true">
+            <rect width="9" height="2" y="0" fill="#fff"/>
+            <rect width="9" height="2" y="2" fill="#0039a6"/>
+            <rect width="9" height="2" y="4" fill="#d52b1e"/>
+          </svg>
+          Русский
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<section id="info">
+  <img class="banner" src="img/banner/banner_ES.png" alt="Banner de Víctor Menjón">
+  <div class="wrap">
+    <p class="typewriter" data-typer="Tengo 19 años y soy estudiante de Ingeniería Informática, apasionado por la programación, la Inteligencia Artificial y la Ciberseguridad.
+Me considero constante, proactivo y autodidacta, siempre motivado por aprender y afrontar nuevos retos tecnológicos."></p>
+    <a href="CV_Victor_Menjon.pdf" download class="btn-cv">Descargar CV</a>
+  </div>
+</section>
+
+<section id="hab-apt">
+  <div class="wrap">
+    <h2 class="typewriter" data-typer="HABILIDADES"></h2>
+    <div class="ha-grid">
+      <div class="ha-item"><img src="img/habilidades/python.png" alt="Python"><h3>PYTHON</h3></div>
+      <div class="ha-item"><img src="img/habilidades/django.png" alt="Django"><h3>Django</h3></div>
+      <div class="ha-item"><img src="img/habilidades/json.png" alt="JSON"><h3>JSON</h3></div>
+      <div class="ha-item"><img src="img/habilidades/cpp.png" alt="C++"><h3>C++</h3></div>
+      <div class="ha-item"><img src="img/habilidades/html.png" alt="HTML"><h3>HTML 5</h3></div>
+      <div class="ha-item"><img src="img/habilidades/css.png" alt="CSS"><h3>CSS 3</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="formacion">
+  <div class="wrap">
+    <h2 class="typewriter" data-typer="FORMACIÓN"></h2>
+    <div class="formacion">
+      <div class="fo-card">
+        <h3>Grado Universitario</h3>
+        <p class="muted"><strong>Universidad:</strong> Universidad de Zaragoza</p>
+        <p class="muted"><strong>Carrera:</strong> Grado en Ingeniería Informática</p>
+        <p class="muted"><strong>Fecha:</strong> 2024 - Actual</p>
+      </div>
+      <div class="fo-card">
+        <h3>Objetivo Profesional</h3>
+        <p class="muted">Desarrollarme en el ámbito de la informática, aportando valor en proyectos tecnológicos y creciendo de manera continua como profesional, con especial interés en la IA y la Ciberseguridad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <h2 class="typewriter" data-typer="MIS PROYECTOS"></h2>
+    <div class="portfolio-grid">
+      <a class="portfolio-item" href="https://github.com/Vimen1803/Casino-2FA-JsonDB-Python.git" target="_blank" rel="noopener noreferrer">
+        <img class="portfolio-banner" src="img/proyectos/casino.png" alt="Proyecto 1">
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">Casino-2FA-JsonDB-Python</h3>
+          <p class="portfolio-desc">Casino creado en Python.<br>Completamente funcional basado en juegos de azar, guardado de cuentas con contraseña y 2FA, con base de datos alojada en JSON.</p>
+        </div>
+      </a>
+      <a class="portfolio-item" href="https://vimen1803.pythonanywhere.com/home" target="_blank" rel="noopener noreferrer">
+        <img class="portfolio-banner" src="img/proyectos/proyecto2.png" alt="Proyecto 2">
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">WebLA-Django</h3>
+          <p class="portfolio-desc">Plataforma web desarrollada en Django para mostrar información detallada sobre datos extraidos desde APIs externas y JSON locales.</p>
+        </div>
+      </a>
+      <a class="portfolio-item" href="https://vimen1803.github.io/VictorMenjonPortfolio" target="_blank" rel="noopener noreferrer">
+        <img class="portfolio-banner" src="img/proyectos/foto2.png" alt="Proyecto 3">
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">Portfolio - Victor Menjon</h3>
+          <p class="portfolio-desc">Portfolio el cual trata diferentes ámbitos, incluyendo un formulario de contacto y demás especialidades.</p>
+        </div>
+      </a>
+      <a class="portfolio-item" href="https://github.com/Vimen1803/GSenku-cpp/tree/main" target="_blank" rel="noopener noreferrer">
+        <img class="portfolio-banner" src="img/proyectos/proyecto4.png" alt="Proyecto 4">
+        <div class="portfolio-content">
+          <h3 class="portfolio-title">GSenku - C++</h3>
+          <p class="portfolio-desc">Famoso juego chino recreado en C++. Con distintos tipos de tablero y movimientos habilitados, se manaeja a través de la terminal o un compilador de C++</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <h2 class="typewriter" data-typer="CONTACTO"></h2>
+    <div class="contact-grid">
+      <form onsubmit="event.preventDefault()">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu email" required>
+        <input type="text" name="asunto" placeholder="Asunto" required>
+        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <div class="link-list">
+        <div class="link-row"><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" rel="noopener noreferrer">victormnjfan@gmail.com</a></div>
+        <div class="link-row"><a href="https://github.com/Vimen1803" target="_blank" rel="noopener noreferrer">GitHub</a></div>
+        <div class="link-row"><a href="https://www.linkedin.com/in/víctor-menjón-fandos-925616293" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+// --- PARTICLES ---
+particlesJS('particles-js',{
+  particles:{
+    number:{value:90,density:{enable:true,value_area:900}},
+    color:{value:'#ff2d2d'},
+    shape:{type:'circle'},
+    opacity:{value:0.5},
+    size:{value:3,random:true},
+    line_linked:{enable:true,distance:150,color:'#ff2d2d',opacity:0.4,width:1},
+    move:{enable:true,speed:1.6,out_mode:'out'}
+  },
+  interactivity:{
+    detect_on:'canvas',
+    events:{onhover:{enable:true,mode:'grab'},onclick:{enable:true,mode:'push'},resize:true},
+    modes:{grab:{distance:170,line_linked:{opacity:0.6}},push:{particles_nb:3}}
+  },
+  retina_detect:true
+});
+
+// --- TYPEWRITER ---
+function typeText(el, text, speed=18){
+  el.innerHTML = ''; // Limpiamos contenido previo
+  el.style.visibility = 'visible';
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor';
+  el.appendChild(cursor);
+
+  let i = 0;
+  function step(){
+    if(i < text.length){
+      const char = text.charAt(i);
+      if(char === '\n'){ 
+        const br = document.createElement('br');
+        el.insertBefore(br, cursor);
+      } else {
+        el.insertBefore(document.createTextNode(char), cursor);
+      }
+      i++;
+      setTimeout(step, speed);
+    } else { 
+      cursor.remove(); 
+    }
+  }
+  step();
+}
+
+function queueWriters(els){
+  let delay=0;
+  els.forEach(el=>{
+    const txt=el.getAttribute('data-typer');
+    setTimeout(()=>typeText(el,txt),delay);
+    delay+=Math.min(1800,120+txt.length*6);
+  });
+}
+
+// --- TYPEWRITER SECCIONES ---
+const sections=Array.from(document.querySelectorAll('section'));
+const typedSet=new WeakSet();
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const els=Array.from(entry.target.querySelectorAll('.typewriter[data-typer]')).filter(el=>!typedSet.has(el));
+      if(els.length){ queueWriters(els); els.forEach(el=>typedSet.add(el)); }
+    }
+  });
+},{threshold:0.25});
+sections.forEach(s=>io.observe(s));
+window.addEventListener('DOMContentLoaded',()=>{
+  const first=document.querySelector('#info');
+  const els=Array.from(first.querySelectorAll('.typewriter[data-typer]'));
+  queueWriters(els); els.forEach(el=>typedSet.add(el));
+});
+
+// --- NAVBAR ACTIVE ---
+const navLinks=document.querySelectorAll('nav a');
+const secciones=Array.from(navLinks).map(a=>document.querySelector(a.getAttribute('href')));
+const sectionObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${entry.target.id}`));
+    }
+  });
+},{threshold:0.5});
+secciones.forEach(section=>sectionObserver.observe(section));
+
+// --- MENU HAMBURGUESA ---
+const menuToggle=document.getElementById('menu-toggle'); 
+const menu=document.getElementById('menu');
+menuToggle.addEventListener('click',()=>{menu.classList.toggle('show');});
+menu.querySelectorAll('a').forEach(a=>{ a.addEventListener('click', ()=>{ menu.classList.remove('show'); }); });
+// --- Cerrar menú al hacer clic fuera ---
+document.addEventListener('click', (e) => {
+  const isClickInside = menu.contains(e.target) || menuToggle.contains(e.target);
+  if (!isClickInside) {
+    menu.classList.remove('show');
+  }
+});
+
+// --- EMAILJS ---
+emailjs.init("MclWiiwxOuM5eq6ca");
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('#contacto form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = form.nombre.value.trim();
+    const email = form.email.value.trim();
+    const asunto = form.asunto.value.trim();
+    const mensaje = form.mensaje.value.trim();
+    emailjs.send("service_4p1yfgr", "template_dpssliw", {from_name: nombre, from_email: "victormnjfan@gmail.com", reply_to: email, subject: asunto, message: mensaje})
+      .then(() => { 
+      form.reset(); 
+      mostrarPopup(form.dataset.popupEnviado, false); 
+    })
+    .catch((err) => { 
+      mostrarPopup(form.dataset.popupError, true); 
+    });
+  });
+
+  function mostrarPopup(texto, esError=false){
+    const popup = document.createElement('div');
+    popup.textContent = texto;
+    popup.style.position = 'fixed';
+    popup.style.left = '50%';
+    popup.style.bottom = '30px';
+    popup.style.transform = 'translateX(-50%) translateY(50px)';
+    popup.style.background = esError ? '#ff2d2d' : 'var(--card)';
+    popup.style.color = esError ? '#fff' : 'var(--fg)';
+    popup.style.border = esError ? '1px solid rgba(255,45,45,0.5)' : '1px solid var(--card-border)';
+    popup.style.padding = '16px 24px';
+    popup.style.borderRadius = '12px';
+    popup.style.boxShadow = esError ? '0 12px 36px rgba(255,45,45,0.3)' : '0 12px 36px rgba(255,45,45,.14)';
+    popup.style.fontWeight = '700';
+    popup.style.fontSize = '16px';
+    popup.style.zIndex = '9999';
+    popup.style.textAlign = 'center';
+    popup.style.opacity = '0';
+    popup.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    document.body.appendChild(popup);
+    setTimeout(() => { popup.style.opacity = '1'; popup.style.transform = 'translateX(-50%) translateY(0)'; }, 10);
+    setTimeout(() => { popup.style.opacity = '0'; popup.style.transform = 'translateX(-50%) translateY(50px)'; setTimeout(() => popup.remove(), 400); }, esError ? 2500 : 2000);
+  }
+});
+
+// --- TRADUCCIONES ---
+const cvButton = document.querySelector('.btn-cv');
+const menuLinks = document.querySelectorAll('nav .menu a');
+
+const texts = {
+  es: {
+    menu:["Información","Habilidades","Formación","Portfolio","Contacto"],
+    info:"Tengo 19 años y soy estudiante de Ingeniería Informática, apasionado por la programación, la Inteligencia Artificial y la Ciberseguridad.\nMe considero constante, proactivo y autodidacta, siempre motivado por aprender y afrontar nuevos retos tecnológicos.",
+    habilidades:"HABILIDADES",
+    formacion:"FORMACIÓN",
+    objetivo:"Desarrollarme en el ámbito de la informática, aportando valor en proyectos tecnológicos y creciendo de manera continua como profesional, con especial interés en la IA y la Ciberseguridad.",
+    estudios:[
+      { titulo:"Grado Universitario", datos:[
+        { label:"Universidad", value:"Universidad de Zaragoza" },
+        { label:"Carrera", value:"Grado en Ingeniería Informática" },
+        { label:"Fecha", value:"2024 - Actual" }
+      ]},
+      { titulo:"Objetivo Profesional", datos:[
+        { label:"", value:"Desarrollarme en el ámbito de la informática, aportando valor en proyectos tecnológicos y creciendo de manera continua como profesional, con especial interés en la IA y la Ciberseguridad." }
+      ]}
+    ],
+    portfolio:"MIS PROYECTOS",
+    proyectos:[
+      { titulo:"Casino-2FA-JsonDB-Python", descripcion:"Casino creado en Python. Completamente funcional basado en juegos de azar, guardado de cuentas con contraseña y 2FA, con base de datos alojada en JSON." },
+      { titulo:"WebLA-Django", descripcion:"Plataforma web desarrollada en Django para mostrar información detallada sobre datos extraidos desde APIs externas y JSON locales." },
+      { titulo:"Portfolio - Victor Menjon", descripcion:"Portfolio el cual trata diferentes ámbitos, incluyendo un formulario de contacto y demás especialidades." },
+      { titulo:"GSenku - C++", descripcion:"Famos juego chino recreado en C++. Con distintos tipos de tablero y movimientos habilitados, se maneja a través de la terminal o un compilador de C++." }
+    ],
+    contacto:"CONTACTO",
+    formulario:{ nombre:"Tu nombre", email:"Tu email", asunto:"Asunto", mensaje:"Tu mensaje", boton:"Enviar",mensajeEnviado: "Mensaje Enviado",errorEnvio: "Error al enviar el mensaje", },
+    cv:"Descargar CV",
+    banner: "img/banner/banner_ES.png"
+  },
+
+  en: {
+    menu:["Info","Skills","Education","Portfolio","Contact"],
+    info:"I am 19 years old and a Computer Engineering student, passionate about programming, AI and Cybersecurity.\nI am constant, proactive and self-taught, always motivated to learn and face new technological challenges.",
+    habilidades:"SKILLS",
+    formacion:"EDUCATION",
+    objetivo:"To develop myself in the field of computer science, contributing value to technological projects and continuously growing as a professional, with special interest in AI and Cybersecurity.",
+    estudios:[
+      { titulo:"University Degree", datos:[
+        { label:"University", value:"University of Zaragoza" },
+        { label:"Degree", value:"Computer Engineering" },
+        { label:"Date", value:"2024 - Present" }
+      ]},
+      { titulo:"Professional Goal", datos:[
+        { label:"", value:"To develop myself in the field of computer science, contributing value to technological projects and continuously growing as a professional, with special interest in AI and Cybersecurity." }
+      ]}
+    ],
+    portfolio:"MY PROJECTS",
+    proyectos:[
+      { titulo:"Casino-2FA-JsonDB-Python", descripcion:"Casino created in Python. Fully functional based on games of chance, account storage with password and 2FA, with a JSON database." },
+      { titulo:"WebLA-Django", descripcion:"Web platform developed in Django to display detailed information from external APIs and local JSON data." },
+      { titulo:"Portfolio - Victor Menjon", descripcion:"Portfolio covering different areas, including a contact form and other specialties." },
+      { titulo:"GSenku - C++", descripcion:"Famous Chinese game recreated in C++. With different types of boards and enabled moves, managed via terminal or C++ compiler." }
+    ],
+    contacto:"CONTACT",
+    formulario:{ nombre:"Your name", email:"Your email", asunto:"Subject", mensaje:"Your message", boton:"Send",mensajeEnviado: "Message Sent",errorEnvio: "Error sending message"},
+    cv:"Download CV",
+    banner: "img/banner/banner_EN.png"
+  },
+
+  ca: {
+    menu:["Informació","Habilitats","Formació","Portfolio","Contacte"],
+    info:"Tinc 19 anys i sóc estudiant d'Enginyeria Informàtica, apassionat per la programació, la IA i la Ciberseguretat.\nEm considero constant, proactiu i autodidacta, sempre motivat per aprendre i afrontar nous reptes tecnològics.",
+    habilidades:"HABILITATS",
+    formacion:"FORMACIÓ",
+    objetivo:"Desenvolupar-me en l'àmbit de la informàtica, aportant valor en projectes tecnològics i creixent de manera contínua com a professional, amb especial interès per IA i Ciberseguretat.",
+    estudios:[
+      { titulo:"Grau Universitari", datos:[
+        { label:"Universitat", value:"Universitat de Saragossa" },
+        { label:"Carrera", value:"Grau en Enginyeria Informàtica" },
+        { label:"Data", value:"2024 - Actual" }
+      ]},
+      { titulo:"Objectiu Professional", datos:[
+        { label:"", value:"Desenvolupar-me en l'àmbit de la informàtica, aportant valor en projectes tecnològics i creixent de manera contínua com a professional, amb especial interès per IA i Ciberseguretat." }
+      ]}
+    ],
+    portfolio:"ELS MEUS PROJECTES",
+    proyectos:[
+      { titulo:"Casino-2FA-JsonDB-Python", descripcion:"Casino creat en Python. Completament funcional basat en jocs d'atzar, emmagatzematge de comptes amb contrasenya i 2FA, amb base de dades en JSON." },
+      { titulo:"WebLA-Django", descripcion:"Plataforma web desenvolupada en Django per mostrar informació detallada de dades extretes d'APIs externes i JSON locals." },
+      { titulo:"Portfolio - Victor Menjon", descripcion:"Portfolio que tracta diferents àmbits, incloent un formulari de contacte i altres especialitats." },
+      { titulo:"GSenku - C++", descripcion:"Famos joc xinès recreat en C++. Amb diferents tipus de tauler i moviments habilitats, es maneja a través del terminal o un compilador de C++." }
+    ],
+    contacto:"CONTACTE",
+    formulario:{ nombre:"El teu nom", email:"El teu email", asunto:"Assumpte", mensaje:"El teu missatge", boton:"Enviar",mensajeEnviado: "Missatge enviat",errorEnvio: "Error en enviar el missatge" },
+    cv:"Descarregar CV",
+    banner: "img/banner/banner_CA.png"
+  },
+
+  fr: {
+    menu:["Info","Compétences","Éducation","Portfolio","Contact"],
+    info:"J'ai 19 ans et je suis étudiant en informatique, passionné par la programmation, l'IA et la cybersécurité.\nJe me considère constant, proactif et autodidacte, toujours motivé pour apprendre et relever de nouveaux défis technologiques.",
+    habilidades:"COMPÉTENCES",
+    formacion:"ÉDUCATION",
+    objetivo:"Me développer dans le domaine de l'informatique, en apportant de la valeur aux projets technologiques et en évoluant continuellement en tant que professionnel, avec un intérêt particulier pour l'IA et la cybersécurité.",
+    estudios:[
+      { titulo:"Diplôme Universitaire", datos:[
+        { label:"Université", value:"Université de Saragosse" },
+        { label:"Filière", value:"Ingénierie Informatique" },
+        { label:"Date", value:"2024 - Présent" }
+      ]},
+      { titulo:"Objectif Professionnel", datos:[
+        { label:"", value:"Me développer dans le domaine de l'informatique, en apportant de la valeur aux projets technologiques et en évoluant continuellement en tant que professionnel, avec un intérêt particulier pour l'IA et la cybersécurité." }
+      ]}
+    ],
+    portfolio:"MES PROJETS",
+    proyectos:[
+      { titulo:"Casino-2FA-JsonDB-Python", descripcion:"Casino créé en Python. Entièrement fonctionnel basé sur des jeux de hasard, stockage des comptes avec mot de passe et 2FA, avec une base de données JSON." },
+      { titulo:"WebLA-Django", descripcion:"Plateforme web développée en Django pour afficher des informations détaillées provenant d'APIs externes et de JSON locaux." },
+      { titulo:"Portfolio - Victor Menjon", descripcion:"Portfolio couvrant différents domaines, incluant un formulaire de contact et d'autres spécialités." },
+      { titulo:"GSenku - C++", descripcion:"Célèbre jeu chinois recréé en C++. Avec différents types de plateaux et mouvements activés, géré via le terminal ou un compilateur C++." }
+    ],
+    contacto:"CONTACT",
+    formulario:{ nombre:"Votre nom", email:"Votre email", asunto:"Sujet", mensaje:"Votre message", boton:"Envoyer", mensajeEnviado:"Message envoyé", errorEnvio:"Erreur lors de l'envoi du message" },
+    cv:"Télécharger CV",
+    banner: "img/banner/banner_FR.png"
+  },
+
+  it: {
+    menu:["Informazioni","Competenze","Formazione","Portfolio","Contatto"],
+    info:"Ho 19 anni e sono uno studente di Ingegneria Informatica, appassionato di programmazione, IA e Cybersecurity.\nMi considero costante, proattivo e autodidatta, sempre motivato ad apprendere e affrontare nuove sfide tecnologiche.",
+    habilidades:"COMPETENZE",
+    formacion:"FORMAZIONE",
+    objetivo:"Svilupparmi nel campo dell'informatica, apportando valore ai progetti tecnologici e crescendo continuamente come professionista, con particolare interesse per l'IA e la Cybersecurity.",
+    estudios:[
+      { titulo:"Laurea Universitaria", datos:[
+        { label:"Università", value:"Università di Saragozza" },
+        { label:"Corso", value:"Ingegneria Informatica" },
+        { label:"Data", value:"2024 - Attuale" }
+      ]},
+      { titulo:"Obiettivo Professionale", datos:[
+        { label:"", value:"Svilupparmi nel campo dell'informatica, apportando valore ai progetti tecnologici e crescendo continuamente come professionista, con particolare interesse per l'IA e la Cybersecurity." }
+      ]}
+    ],
+    portfolio:"I MIEI PROGETTI",
+    proyectos:[
+      { titulo:"Casino-2FA-JsonDB-Python", descripcion:"Casino creato in Python. Completamente funzionante basato su giochi d'azzardo, salvataggio account con password e 2FA, con database JSON." },
+      { titulo:"WebLA-Django", descripcion:"Piattaforma web sviluppata in Django per mostrare informazioni dettagliate da API esterne e JSON locali." },
+      { titulo:"Portfolio - Victor Menjon", descripcion:"Portfolio che tratta diversi ambiti, inclusi modulo di contatto e altre specialità." },
+      { titulo:"GSenku - C++", descripcion:"Famoso gioco cinese ricreato in C++. Con diversi tipi di tabellone e movimenti abilitati, gestito tramite terminale o compilatore C++." }
+    ],
+    contacto:"CONTATTO",
+    formulario:{ nombre:"Il tuo nome", email:"La tua email", asunto:"Oggetto", mensaje:"Il tuo messaggio", boton:"Invia", mensajeEnviado:"Messaggio inviato", errorEnvio:"Errore nell'invio del messaggio" },
+    cv:"Scarica CV",
+    banner: "img/banner/banner_IT.png"
+  },
+
+  de: {
+    menu:["Information","Fähigkeiten","Bildung","Portfolio","Kontakt"],
+    info:"Ich bin 19 Jahre alt und Informatikstudent, leidenschaftlich für Programmierung, KI und Cybersicherheit.\nIch betrachte mich als konstant, proaktiv und autodidaktisch, immer motiviert zu lernen und neue technologische Herausforderungen anzugehen.",
+    habilidades:"FÄHIGKEITEN",
+    formacion:"BILDUNG",
+    objetivo:"Mich im Bereich Informatik weiterzuentwickeln, Werte zu technologischen Projekten beizutragen und kontinuierlich als Fachkraft zu wachsen, mit besonderem Interesse an KI und Cybersicherheit.",
+    estudios:[
+      { titulo:"Universitätsabschluss", datos:[
+        { label:"Universität", value:"Universität Zaragoza" },
+        { label:"Studiengang", value:"Informatik" },
+        { label:"Datum", value:"2024 - Gegenwart" }
+      ]},
+      { titulo:"Berufliches Ziel", datos:[
+        { label:"", value:"Mich im Bereich Informatik weiterzuentwickeln, Werte zu technologischen Projekten beizutragen und kontinuierlich als Fachkraft zu wachsen, mit besonderem Interesse an KI und Cybersicherheit." }
+      ]}
+    ],
+    portfolio:"MEINE PROJEKTE",
+    proyectos:[
+      { titulo:"Casino-2FA-JsonDB-Python", descripcion:"Casino in Python erstellt. Voll funktionsfähig basierend auf Glücksspielen, Kontospeicherung mit Passwort und 2FA, mit JSON-Datenbank." },
+      { titulo:"WebLA-Django", descripcion:"Webplattform in Django entwickelt, um detaillierte Informationen von externen APIs und lokalen JSON-Daten anzuzeigen." },
+      { titulo:"Portfolio - Victor Menjon", descripcion:"Portfolio, das verschiedene Bereiche abdeckt, einschließlich eines Kontaktformulars und anderer Spezialitäten." },
+      { titulo:"GSenku - C++", descripcion:"Berühmtes chinesisches Spiel in C++ nachgebildet. Mit verschiedenen Brettarten und aktivierten Bewegungen, verwaltet über Terminal oder C++ Compiler." }
+    ],
+    contacto:"KONTAKT",
+    formulario:{ nombre:"Ihr Name", email:"Ihre Email", asunto:"Betreff", mensaje:"Ihre Nachricht", boton:"Senden", mensajeEnviado:"Nachricht gesendet", errorEnvio: "Fehler beim Senden der Nachricht" },
+    cv:"CV Herunterladen",
+    banner: "img/banner/banner_DE.png"
+  },
+
+  ru: {
+    menu:["Информация","Навыки","Образование","Портфолио","Контакт"],
+    info:"Мне 19 лет, я студент факультета компьютерной инженерии, увлечен программированием, ИИ и кибербезопасностью.\nЯ считаю себя целеустремленным, проактивным и самоучкой, всегда мотивирован учиться и решать новые технологические задачи.",
+    habilidades:"НАВЫКИ",
+    formacion:"ОБРАЗОВАНИЕ",
+    objetivo:"Развиваться в области информатики, вносить ценность в технологические проекты и непрерывно расти как профессионал, с особым интересом к ИИ и кибербезопасности.",
+    estudios:[
+      { titulo:"Университетская степень", datos:[
+        { label:"Университет", value:"Университет Сарагосы" },
+        { label:"Специальность", value:"Компьютерная инженерия" },
+        { label:"Дата", value:"2024 - настоящее время" }
+      ]},
+      { titulo:"Профессиональная цель", datos:[
+        { label:"", value:"Развиваться в области информатики, вносить ценность в технологические проекты и непрерывно расти как профессионал, с особым интересом к ИИ и кибербезопасности." }
+      ]}
+    ],
+    portfolio:"МОИ ПРОЕКТЫ",
+    proyectos:[
+      { titulo:"Casino-2FA-JsonDB-Python", descripcion:"Казино, созданное на Python. Полностью функциональное, основано на азартных играх, хранение аккаунтов с паролем и 2FA, база данных в формате JSON." },
+      { titulo:"WebLA-Django", descripcion:"Веб-платформа, разработанная на Django, для отображения подробной информации из внешних API и локальных JSON данных." },
+      { titulo:"Portfolio - Victor Menjon", descripcion:"Портфолио, охватывающее различные области, включая форму обратной связи и другие особенности." },
+      { titulo:"GSenku - C++", descripcion:"Известная китайская игра, воссозданная на C++. С различными типами досок и разрешенными ходами, управляется через терминал или компилятор C++." }
+    ],
+    contacto:"КОНТАКТ",
+    formulario:{ nombre:"Ваше имя", email:"Ваш email", asunto:"Тема", mensaje:"Ваше сообщение", boton:"Отправить", mensajeEnviado:"Сообщение отправлено", errorEnvio:"Ошибка при отправке сообщения" },
+    cv:"Скачать CV",
+    banner: "img/banner/banner_RU.png"
+  },
+
+  pt: {
+    menu:["Informações","Habilidades","Formação","Portfólio","Contato"],
+    info:"Tenho 19 anos e sou estudante de Engenharia Informática, apaixonado por programação, IA e Cibersegurança.\nConsidero-me constante, proativo e autodidata, sempre motivado para aprender e enfrentar novos desafios tecnológicos.",
+    habilidades:"HABILIDADES",
+    formacion:"FORMAÇÃO",
+    objetivo:"Desenvolver-me na área da informática, contribuindo com valor em projetos tecnológicos e crescendo continuamente como profissional, com especial interesse em IA e Cibersegurança.",
+    estudios:[
+      { titulo:"Graduação Universitária", datos:[
+        { label:"Universidade", value:"Universidade de Zaragoza" },
+        { label:"Curso", value:"Engenharia Informática" },
+        { label:"Período", value:"2024 - Presente" }
+      ]},
+      { titulo:"Objetivo Profissional", datos:[
+        { label:"", value:"Desenvolver-me na área da informática, contribuindo com valor em projetos tecnológicos e crescendo continuamente como profissional, com especial interesse em IA e Cibersegurança." }
+      ]}
+    ],
+    portfolio:"MEUS PROJETOS",
+    proyectos:[
+      { titulo:"Casino-2FA-JsonDB-Python", descripcion:"Cassino criado em Python. Totalmente funcional, baseado em jogos de azar, armazenamento de contas com senha e 2FA, com base de dados em JSON." },
+      { titulo:"WebLA-Django", descripcion:"Plataforma web desenvolvida em Django para exibir informações detalhadas de APIs externas e dados JSON locais." },
+      { titulo:"Portfolio - Victor Menjon", descripcion:"Portfólio cobrindo diferentes áreas, incluindo um formulário de contato e outras especialidades." },
+      { titulo:"GSenku - C++", descripcion:"Famoso jogo chinês recriado em C++. Com diferentes tipos de tabuleiros e movimentos habilitados, gerenciado via terminal ou compilador C++." }
+    ],
+    contacto:"CONTATO",
+    formulario:{ nombre:"Seu nome", email:"Seu email", asunto:"Assunto", mensaje:"Sua mensagem", boton:"Enviar", mensajeEnviado:"Mensagem enviada", errorEnvio:"Erro ao enviar a mensagem" },
+    cv:"Baixar CV",
+    banner: "img/banner/banner_PT.png"
+  }
+};
+
+// --- ACTUALIZAR FORMACIÓN ---
+function updateFormacion(lang){
+  const cardContainer = document.querySelector('#formacion .formacion');
+  if(!cardContainer) return;
+  cardContainer.innerHTML='';
+
+  texts[lang].estudios.forEach(est=>{
+    const card = document.createElement('div');
+    card.className = 'fo-card';
+
+    let html = `<h3>${est.titulo}</h3>`;
+    est.datos.forEach(d=>{
+      if(d.label) html += `<p class="muted"><strong>${d.label}:</strong> ${d.value}</p>`;
+      else html += `<p class="muted">${d.value}</p>`;
+    });
+
+    card.innerHTML = html;
+    cardContainer.appendChild(card);
+  });
+}
+
+// --- CAMBIO DE IDIOMA (integrado con el dropdown personalizado) ---
+const dropdown = document.getElementById('language-selector');
+const selected = dropdown.querySelector('.language-selected');
+const options = dropdown.querySelector('.language-options');
+
+function changeLanguage(lang){
+  // Menú
+  menuLinks.forEach((link,i)=>{
+    link.setAttribute('data-typer',texts[lang].menu[i]);
+    link.textContent='';
+    typeText(link,texts[lang].menu[i],18);
+  });
+
+  // Secciones
+  document.querySelector('#info .typewriter').setAttribute('data-typer',texts[lang].info);
+  document.querySelector('#hab-apt .typewriter').setAttribute('data-typer',texts[lang].habilidades);
+  document.querySelector('#formacion .typewriter').setAttribute('data-typer',texts[lang].formacion);
+  document.querySelector('#portfolio .typewriter').setAttribute('data-typer',texts[lang].portfolio);
+  document.querySelector('#contacto .typewriter').setAttribute('data-typer',texts[lang].contacto);
+
+  // CV
+  cvButton.setAttribute('href',`CV/CV_Victor_Menjon_${lang.toUpperCase()}.pdf`);
+  cvButton.textContent=texts[lang].cv;
+
+  // Banner
+  const bannerImg = document.querySelector('#info .banner');
+  if (texts[lang].banner) {
+    bannerImg.setAttribute('src', texts[lang].banner);
+  }
+
+  // Portfolio
+  const portfolioItems=document.querySelectorAll('.portfolio-item');
+  portfolioItems.forEach((item,i)=>{
+    if(texts[lang].proyectos[i]){
+      item.querySelector('.portfolio-title').textContent=texts[lang].proyectos[i].titulo;
+      item.querySelector('.portfolio-desc').textContent=texts[lang].proyectos[i].descripcion;
+    }
+  });
+
+  // Formulario
+  const form=document.querySelector('#contacto form');
+  form.nombre.placeholder=texts[lang].formulario.nombre;
+  form.email.placeholder=texts[lang].formulario.email;
+  form.asunto.placeholder=texts[lang].formulario.asunto;
+  form.mensaje.placeholder=texts[lang].formulario.mensaje;
+  form.querySelector('button[type="submit"]').textContent=texts[lang].formulario.boton;
+  form.dataset.popupEnviado = texts[lang].formulario.mensajeEnviado;
+  form.dataset.popupError = texts[lang].formulario.errorEnvio;
+
+  // Formación
+  updateFormacion(lang);
+
+  // Re-disparar typewriters
+  queueWriters([
+    document.querySelector('#info .typewriter'),
+    document.querySelector('#hab-apt .typewriter'),
+    document.querySelector('#formacion .typewriter'),
+    document.querySelector('#portfolio .typewriter'),
+    document.querySelector('#contacto .typewriter')
+  ]);
+}
+
+// Conectar opciones del dropdown
+selected.addEventListener('click', (e) => {
+  const isOpen = dropdown.classList.toggle('open');
+  dropdown.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  // controlar aria-hidden del panel de opciones
+  options.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+});
+
+// Cerrar dropdown si se hace click fuera
+document.addEventListener('click', (e) => {
+  if(!dropdown.contains(e.target)){
+    dropdown.classList.remove('open');
+    dropdown.setAttribute('aria-expanded', 'false');
+    options.setAttribute('aria-hidden', 'true');
+  }
+});
+
+// --- Selección real de idioma ---
+const optionDivs = options.querySelectorAll('div[data-lang]');
+
+function actualizarOpcionesVisibles() {
+  const currentLang = selected.getAttribute('data-lang');
+  optionDivs.forEach(opt => {
+    if (opt.getAttribute('data-lang') === currentLang) {
+      opt.style.display = 'none'; // ocultar el idioma actual
+    } else {
+      opt.style.display = 'flex'; // mostrar el resto
+    }
+  });
+}
+
+optionDivs.forEach(opt => {
+  opt.addEventListener('click', () => {
+    const lang = opt.getAttribute('data-lang');
+    const svg = opt.querySelector('svg') ? opt.querySelector('svg').outerHTML : '';
+    const text = opt.textContent.trim();
+    selected.innerHTML = svg + ' ' + text;
+    selected.setAttribute('data-lang', lang);
+    dropdown.classList.remove('open');
+    dropdown.setAttribute('aria-expanded', 'false');
+    options.setAttribute('aria-hidden', 'true');
+    changeLanguage(lang);
+    actualizarOpcionesVisibles(); // actualizar visibilidad al cambiar
+  });
+});
+
+// Llamar al inicio para ocultar el actual
+actualizarOpcionesVisibles();
+
+// Inicializamos en el idioma indicado por el selector (por defecto 'es' en el HTML)
+(function initLanguage(){
+  const initLang = selected.getAttribute('data-lang') || 'es';
+  // Aseguramos que el CV y textos estén en el idioma inicial
+  changeLanguage(initLang);
+})();
+</script>
+</body>
+</html>
