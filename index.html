@@ -432,6 +432,84 @@ button:hover { background: #e22020; }
   font-weight: 700;
   font-size: 16px;
 }
+/* --- Lenguajes en proyectos (icono + popup) --- */
+.lang-info {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 6; /* encima del contenido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-icon {
+  width: 28px;
+  height: 28px;
+  stroke: var(--accent);   /* color línea */
+  fill: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+  background: rgba(0,0,0,0.65); /* fondo oscuro circular */
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.lang-icon:hover {
+  transform: scale(1.15);
+  background: rgba(255,45,45,0.2);
+}
+
+/* Popup */
+.lang-popup {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  background: rgba(0, 0, 0, 0.92); /* más oscuro */
+  color: var(--fg);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 14px;
+  min-width: 220px; /* ancho fijo */
+  max-width: 280px;
+  white-space: normal;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transform: translateY(10px);
+  z-index: 10;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.lang-info:hover .lang-popup {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lista de lenguajes */
+.lang-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lang-popup li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.lang-popup li img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
 
 /* RESPONSIVE */
 @media(max-width: 820px){
@@ -622,6 +700,7 @@ Me considero constante, proactivo y autodidacta, siempre motivado por aprender y
       <div class="ha-item"><img src="img/habilidades/cpp.png" alt="C++"><h3>C++</h3></div>
       <div class="ha-item"><img src="img/habilidades/html.png" alt="HTML"><h3>HTML 5</h3></div>
       <div class="ha-item"><img src="img/habilidades/css.png" alt="CSS"><h3>CSS 3</h3></div>
+      <div class="ha-item"><img src="img/habilidades/js.png" alt="JAVASCRIPT"><h3>JAVASCRIPT</h3></div>
     </div>
   </div>
 </section>
@@ -648,34 +727,85 @@ Me considero constante, proactivo y autodidacta, siempre motivado por aprender y
   <div class="wrap">
     <h2 class="typewriter" data-typer="MIS PROYECTOS"></h2>
     <div class="portfolio-grid">
+
+      <!-- Proyecto 1: Casino -->
       <a class="portfolio-item" href="https://github.com/Vimen1803/Casino-2FA-JsonDB-Python.git" target="_blank" rel="noopener noreferrer">
         <img class="portfolio-banner" src="img/proyectos/casino.png" alt="Proyecto 1">
         <div class="portfolio-content">
           <h3 class="portfolio-title">Casino-2FA-JsonDB-Python</h3>
           <p class="portfolio-desc">Casino creado en Python.<br>Completamente funcional basado en juegos de azar, guardado de cuentas con contraseña y 2FA, con base de datos alojada en JSON.</p>
         </div>
+        <div class="lang-info" data-langs='[
+          {"img":"img/habilidades/json.png","name":"JSON","pct":"x"},
+          {"img":"img/habilidades/python.png","name":"Python","pct":"81%"},
+          {"img":"img/habilidades/html.png","name":"HTML","pct":"7%"},
+          {"img":"img/habilidades/css.png","name":"CSS","pct":"12%"}
+        ]'>
+          <svg xmlns="http://www.w3.org/2000/svg" class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L21.75 12l-4.5 5.25M6.75 17.25L2.25 12l4.5-5.25M14.25 4.5l-4.5 15"/>
+          </svg>
+          <div class="lang-popup"></div>
+        </div>
       </a>
+
+      <!-- Proyecto 2: WebLA-Django -->
       <a class="portfolio-item" href="https://vimen1803.pythonanywhere.com/home" target="_blank" rel="noopener noreferrer">
         <img class="portfolio-banner" src="img/proyectos/proyecto2.png" alt="Proyecto 2">
         <div class="portfolio-content">
           <h3 class="portfolio-title">WebLA-Django</h3>
           <p class="portfolio-desc">Plataforma web desarrollada en Django para mostrar información detallada sobre datos extraidos desde APIs externas y JSON locales.</p>
         </div>
+        <div class="lang-info" data-langs='[
+          {"img":"img/habilidades/django.png","name":"Django","pct":"x"},
+          {"img":"img/habilidades/json.png","name":"JSON","pct":"x"},
+          {"img":"img/habilidades/python.png","name":"Python","pct":"25%"},
+          {"img":"img/habilidades/html.png","name":"HTML","pct":"25%"},
+          {"img":"img/habilidades/css.png","name":"CSS","pct":"40%"},
+          {"img":"img/habilidades/js.png","name":"JavaScript","pct":"10%"}
+        ]'>
+          <svg xmlns="http://www.w3.org/2000/svg" class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L21.75 12l-4.5 5.25M6.75 17.25L2.25 12l4.5-5.25M14.25 4.5l-4.5 15"/>
+          </svg>
+          <div class="lang-popup"></div>
+        </div>
       </a>
+
+      <!-- Proyecto 3: Portfolio -->
       <a class="portfolio-item" href="https://vimen1803.github.io/VictorMenjonPortfolio" target="_blank" rel="noopener noreferrer">
         <img class="portfolio-banner" src="img/proyectos/foto2.png" alt="Proyecto 3">
         <div class="portfolio-content">
           <h3 class="portfolio-title">Portfolio - Victor Menjon</h3>
           <p class="portfolio-desc">Portfolio el cual trata diferentes ámbitos, incluyendo un formulario de contacto y demás especialidades.</p>
         </div>
+        <div class="lang-info" data-langs='[
+          {"img":"img/habilidades/html.png","name":"HTML","pct":"20%"},
+          {"img":"img/habilidades/css.png","name":"CSS","pct":"40%"},
+          {"img":"img/habilidades/js.png","name":"JavaScript","pct":"40%"}
+        ]'>
+          <svg xmlns="http://www.w3.org/2000/svg" class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L21.75 12l-4.5 5.25M6.75 17.25L2.25 12l4.5-5.25M14.25 4.5l-4.5 15"/>
+          </svg>
+          <div class="lang-popup"></div>
+        </div>
       </a>
+
+      <!-- Proyecto 4: GSenku -->
       <a class="portfolio-item" href="https://github.com/Vimen1803/GSenku-cpp/tree/main" target="_blank" rel="noopener noreferrer">
         <img class="portfolio-banner" src="img/proyectos/proyecto4.png" alt="Proyecto 4">
         <div class="portfolio-content">
           <h3 class="portfolio-title">GSenku - C++</h3>
           <p class="portfolio-desc">Famoso juego chino recreado en C++. Con distintos tipos de tablero y movimientos habilitados, se manaeja a través de la terminal o un compilador de C++</p>
         </div>
+        <div class="lang-info" data-langs='[
+          {"img":"img/habilidades/cpp.png","name":"C++","pct":"100%"}
+        ]'>
+          <svg xmlns="http://www.w3.org/2000/svg" class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L21.75 12l-4.5 5.25M6.75 17.25L2.25 12l4.5-5.25M14.25 4.5l-4.5 15"/>
+          </svg>
+          <div class="lang-popup"></div>
+        </div>
       </a>
+
     </div>
   </div>
 </section>
@@ -1216,6 +1346,23 @@ actualizarOpcionesVisibles();
   changeLanguage(initLang);
   actualizarOpcionesVisibles();
 })();
+
+// --- POPUPS DE LENGUAJES ---
+document.querySelectorAll('.lang-info').forEach(el => {
+  const popup = el.querySelector('.lang-popup');
+  try {
+    const langs = JSON.parse(el.dataset.langs);
+    const ul = document.createElement('ul');
+    langs.forEach(l => {
+      const li = document.createElement('li');
+      li.innerHTML = `<img src="${l.img}" alt="${l.name}"> ${l.name}: ${l.pct}`;
+      ul.appendChild(li);
+    });
+    popup.appendChild(ul);
+  } catch (err) {
+    popup.textContent = el.dataset.langs; // fallback por si no es JSON válido
+  }
+});
 </script>
 </body>
 </html>
