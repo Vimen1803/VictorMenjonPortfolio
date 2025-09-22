@@ -1334,7 +1334,7 @@ optionDivs.forEach(opt => {
 // --- INICIALIZAR IDIOMA SEGÚN PREFERENCIA ---
 actualizarOpcionesVisibles();
 (function initLanguage(){
-  let initLang = localStorage.getItem('preferredLang') || 'en';
+  let initLang = localStorage.getItem('preferredLang') || 'es';
 
   const opt = options.querySelector(`div[data-lang="${initLang}"]`);
   const svg = opt && opt.querySelector('svg') ? opt.querySelector('svg').outerHTML : '';
@@ -1365,5 +1365,6 @@ document.querySelectorAll('.lang-info').forEach(el => {
 </script>
 </body>
 </html>
+
 
 
