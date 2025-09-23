@@ -47,7 +47,21 @@ nav {
   align-items: center;
   box-sizing: border-box;
 }
-.brand { font-weight: 800; white-space: nowrap; }
+.brand {
+  font-weight: 800;
+  white-space: nowrap;
+  display: flex; /* Nuevo: flex para alinear imagen y texto */
+  align-items: center; /* Centra verticalmente la imagen con el texto */
+  gap: 0; /* Sin espacio extra entre imagen y texto */
+}
+.brand-logo {
+  width: 40px; /* Tamaño fijo, ajusta según tu imagen (ej. 32px para más compacto) */
+  height: auto; /* Mantiene proporciones */
+  margin-right: 8px; /* Espacio mínimo para "pegarla" al texto, sin mover nada */
+  flex-shrink: 0; /* No se deforma si el contenedor es estrecho */
+  border-radius: 50%; /* Opcional: redondea si es un avatar circular */
+  /* Si quieres un borde o sombra: border: 1px solid var(--card-border); */
+}
 .brand b { color: var(--accent); }
 
 .menu {
@@ -521,7 +535,7 @@ button:hover { background: #e22020; }
 }
 
 /* RESPONSIVE */
-@media(max-width: 820px){
+@media(max-width: 950px){
   .menu { 
     display: flex;
     flex-direction: column;
@@ -560,6 +574,10 @@ button:hover { background: #e22020; }
     margin-left: 10px;
   }
   .ha-grid {grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));}
+  .brand-logo {
+    width: 32px; /* Ligeramente más pequeña en mobile para ahorrar espacio */
+    margin-right: 6px;
+  }
 }
 @media(max-width: 1496px){
   .nav-inner {width: 95%;}
