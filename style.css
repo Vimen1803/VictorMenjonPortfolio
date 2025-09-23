@@ -575,9 +575,10 @@ button:hover { background: #e22020; }
 }
 
 @media(max-width: 420px){
-	.brand h1{display: none;} 
+	.brand img{display: none;} 
 
 }
+
 
 
 
