@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Víctor Menjón | Portfolio Ingeniería Informática</title>
+  <meta name="description" content="Portfolio de Víctor Menjón, estudiante de Ingeniería Informática.">
+  <meta name="keywords" content="Víctor Menjón, portfolio, ingeniería informática, programación, IA, ciberseguridad">
+  <meta name="author" content="Víctor Menjón">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Víctor Menjón | Portfolio Ingeniería Informática">
+  <meta property="og:description" content="Portfolio de Víctor Menjón, estudiante de Ingeniería Informática.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/Vimen1803/VictorMenjonPortfolio/refs/heads/main/img/banner/banner_ES.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Viiictooor18">
+  <meta name="twitter:creator" content="@Viiictooor18">
+  <meta name="twitter:title" content="Víctor Menjón | Portfolio Ingeniería Informática">
+  <meta name="twitter:description" content="Portfolio de Víctor Menjón, estudiante de Ingeniería Informática.">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/Vimen1803/VictorMenjonPortfolio/refs/heads/main/img/banner/banner_ES.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://github.com/Vimen1803/VictorMenjonPortfolio/blob/main/img/programador.png?raw=true/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="https://github.com/Vimen1803/VictorMenjonPortfolio/blob/main/img/programador.png?raw=true/favicon.svg" />
+  <link rel="shortcut icon" href="https://github.com/Vimen1803/VictorMenjonPortfolio/blob/main/img/programador.png?raw=true/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/Vimen1803/VictorMenjonPortfolio/blob/main/img/programador.png?raw=true/apple-touch-icon.png" />
+  <link rel="manifest" href="https://github.com/Vimen1803/VictorMenjonPortfolio/blob/main/img/programador.png?raw=true/site.webmanifest" />
+
+  <!-- 🔑 Datos estructurados (Schema.org) -->
+  <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Víctor Menjón Fandos",
+    "jobTitle": "Estudiante de Ingeniería Informática",
+    "url": "https://victormenjon.es",
+    "image": "https://raw.githubusercontent.com/Vimen1803/VictorMenjonPortfolio/refs/heads/main/img/programador.png",
+    "alumniOf": "Universidad de Zaragoza",
+    "sameAs": [
+        "https://github.com/Vimen1803",
+        "https://www.linkedin.com/in/víctor-menjón-fandos-925616293"
+    ],
+    "knowsAbout": ["Programación", "Inteligencia Artificial", "Ciberseguridad", "Desarrollo Web", "C++", "Python", "Django", "JSON", "HTML", "CSS"]
+    }
+  </script>
+</head>
+<body>
+<div id="particles-js"></div>
+<div class="backdrop"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">
+      <img src="img/favicon.ico" alt="victor menjon">
+      <h1>Víctor <b>Menjón</b></h1>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="menu" id="menu">
+      <a href="#info">Información</a>
+      <a href="#formacion">Formación</a>
+      <a href="#portfolio">Proyectos</a>
+      <a href="#hab-apt">Habilidades</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+
+    <!-- REEMPLAZO: selector personalizado con SVGs -->
+    <div class="language-dropdown" id="language-selector" aria-haspopup="true" aria-expanded="false">
+      <div class="language-selected" data-lang="es" aria-label="Idioma actual">
+        <!-- SVG bandera España (simple) -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32" role="img" aria-hidden="true">
+          <rect width="48" height="32" fill="#AA151B"/>
+          <rect y="10.666" width="48" height="10.667" fill="#F1BF00"/>
+        </svg>
+        Español
+      </div>
+      <div class="language-options" role="menu" aria-hidden="true">
+        <div data-lang="es" role="menuitem">
+            <!-- SVG bandera España -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32" aria-hidden="true">
+            <rect width="48" height="32" fill="#AA151B"/>
+            <rect y="10.666" width="48" height="10.667" fill="#F1BF00"/>
+            </svg>
+            Español
+        </div>
+        <div data-lang="en" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" aria-hidden="true">
+            <rect width="60" height="30" fill="#012169"/>
+            <path d="M0 0 L60 30 M60 0 L0 30" stroke="#fff" stroke-width="6"/>
+            <path d="M0 0 L60 30 M60 0 L0 30" stroke="#C8102E" stroke-width="4"/>
+            <path d="M30 0 V30 M0 15 H60" stroke="#fff" stroke-width="10"/>
+            <path d="M30 0 V30 M0 15 H60" stroke="#C8102E" stroke-width="6"/>
+          </svg>
+          English
+        </div>
+        <div data-lang="ca" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+            <rect width="512" height="512" fill="#fcdd09"/>
+            <g fill="#da121a">
+              <rect y="0" width="512" height="73"/>
+              <rect y="146" width="512" height="73"/>
+              <rect y="292" width="512" height="73"/>
+              <rect y="438" width="512" height="73"/>
+            </g>
+          </svg>
+          Català
+        </div>
+        <div data-lang="pt" role="menuitem">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" aria-hidden="true">
+                <rect width="240" height="400" fill="#006600"/> <!-- Verde -->
+                <rect x="240" width="360" height="400" fill="#ff0000"/> <!-- Rojo -->
+                <!-- Escudo simplificado -->
+                <circle cx="240" cy="200" r="70" fill="#ffcc00" stroke="#000" stroke-width="2"/>
+                <circle cx="240" cy="200" r="45" fill="#ffffff" stroke="#000" stroke-width="1.5"/>
+                <rect x="225" y="170" width="30" height="60" fill="#003399"/>
+                <circle cx="235" cy="185" r="5" fill="#ffffff"/>
+                <circle cx="245" cy="185" r="5" fill="#ffffff"/>
+                <circle cx="235" cy="195" r="5" fill="#ffffff"/>
+                <circle cx="245" cy="195" r="5" fill="#ffffff"/>
+                <circle cx="240" cy="205" r="5" fill="#ffffff"/>
+            </svg>
+            Português
+        </div>
+        <div data-lang="fr" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" aria-hidden="true">
+            <rect width="1" height="2" x="0" fill="#0055a4"/>
+            <rect width="1" height="2" x="1" fill="#fff"/>
+            <rect width="1" height="2" x="2" fill="#ef4135"/>
+          </svg>
+          Français
+        </div>
+        <div data-lang="it" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" aria-hidden="true">
+            <rect width="1" height="2" x="0" fill="#009246"/>
+            <rect width="1" height="2" x="1" fill="#fff"/>
+            <rect width="1" height="2" x="2" fill="#ce2b37"/>
+          </svg>
+          Italiano
+        </div>
+        <div data-lang="de" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" aria-hidden="true">
+            <rect width="5" height="1" y="0" fill="#000"/>
+            <rect width="5" height="1" y="1" fill="#DD0000"/>
+            <rect width="5" height="1" y="2" fill="#FFCE00"/>
+          </svg>
+          Deutsch
+        </div>
+        <div data-lang="ru" role="menuitem">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6" aria-hidden="true">
+            <rect width="9" height="2" y="0" fill="#fff"/>
+            <rect width="9" height="2" y="2" fill="#0039a6"/>
+            <rect width="9" height="2" y="4" fill="#d52b1e"/>
+          </svg>
+          Русский
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!-- BANNER -->
+<section id="info">
+  <div class="wrap">
+    <div class="banner-text">
+      <h1 class="nombre" data-typer="VICTOR MENJÓN">VICTOR MENJÓN</h1>
+      <h2 class="subtitulo" data-typer="ESTUDIANTE DE INGENIERÍA INFORMÁTICA">ESTUDIANTE DE INGENIERÍA INFORMÁTICA</h2>
+      
+      <!-- ICONOS DE CONTACTO -->
+      <div class="banner-icons">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=victormnjfan@gmail.com" target="_blank" aria-label="Correo">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
+          </svg>
+        </a>
+        <a href="https://github.com/Vimen1803" target="_blank" aria-label="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.96.58.1.79-.25.79-.55 0-.27-.01-1.17-.02-2.13-3.2.7-3.87-1.54-3.87-1.54-.53-1.36-1.3-1.72-1.3-1.72-1.06-.73.08-.72.08-.72 1.17.08 1.78 1.2 1.78 1.2 1.04 1.77 2.72 1.26 3.38.96.1-.75.41-1.26.74-1.55-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.2-3.1-.12-.3-.52-1.5.11-3.14 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.64.23 2.84.11 3.14.75.81 1.2 1.84 1.2 3.1 0 4.43-2.7 5.4-5.27 5.69.42.37.8 1.1.8 2.22 0 1.61-.01 2.91-.01 3.3 0 .3.21.65.8.54A10.99 10.99 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/víctor-menjón-fandos-925616293" target="_blank" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5V5c0-2.76-2.24-5-5-5zm-11 19H5V9h3v10zm-1.5-11.29c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75S8 5 8 5.96s-.79 1.75-1.75 1.75zM20 19h-3v-5.35c0-1.27-.02-2.9-1.77-2.9-1.78 0-2.05 1.38-2.05 2.81V19h-3V9h2.9v1.36h.04c.4-.75 1.37-1.55 2.82-1.55 3.02 0 3.58 1.99 3.58 4.58V19z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <p class="typewriter" data-typer="Tengo 19 años y soy estudiante de Ingeniería Informática..."></p>
+
+    <!-- Botón con icono Heroicons -->
+    <a href="CV_Victor_Menjon.pdf" download class="btn-cv">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon-download" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4"/>
+      </svg>
+      <span>Descargar CV</span>
+    </a>
+  </div>
+</section>
+
+<section id="formacion">
+  <div class="wrap">
+    <h2 class="typewriter" data-typer="FORMACIÓN"></h2>
+    <div class="formacion">
+      <article class="fo-card">
+        <h3>Grado Universitario</h3>
+        <p class="muted"><strong>Universidad:</strong> Universidad de Zaragoza</p>
+        <p class="muted"><strong>Carrera:</strong> Grado en Ingeniería Informática</p>
+        <p class="muted"><strong>Fecha:</strong> 2024 - Actual</p>
+      </article>
+      <article class="fo-card">
+        <h3>Objetivo Profesional</h3>
+        <p class="muted">Desarrollarme en el ámbito de la informática, aportando valor en proyectos tecnológicos y creciendo de manera continua como profesional, con especial interés en la IA y la Ciberseguridad.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="wrap">
+    <h2 class="typewriter" data-typer="MIS PROYECTOS"></h2>
+    <div class="portfolio-grid">
+
+      <!-- Proyecto 1: Casino -->
+      <article>
+        <a class="portfolio-item" href="https://github.com/Vimen1803/Casino-2FA-JsonDB-Python.git" target="_blank" rel="noopener noreferrer">
+          <img class="portfolio-banner" src="img/proyectos/casino.png" alt="Proyecto 1">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">Casino-2FA-JsonDB-Python</h3>
+            <p class="portfolio-desc">Casino creado en Python.<br>Completamente funcional basado en juegos de azar, guardado de cuentas con contraseña y 2FA, con base de datos alojada en JSON.</p>
+          </div>
+          <div class="lang-info" data-langs='[
+            {"img":"img/habilidades/json.png","name":"JSON","pct":"x"},
+            {"img":"img/habilidades/python.png","name":"Python","pct":"81%"},
+            {"img":"img/habilidades/html.png","name":"HTML","pct":"7%"},
+            {"img":"img/habilidades/css.png","name":"CSS","pct":"12%"}]'>
+            <svg xmlns="http://www.w3.org/2000/svg" class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L21.75 12l-4.5 5.25M6.75 17.25L2.25 12l4.5-5.25M14.25 4.5l-4.5 15"/>
+            </svg>
+            <div class="lang-popup"></div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Proyecto 2: WebLA-Django -->
+      <article>
+        <a class="portfolio-item" href="https://vimen1803.pythonanywhere.com/home" target="_blank" rel="noopener noreferrer">
+          <img class="portfolio-banner" src="img/proyectos/proyecto2.png" alt="Proyecto 2">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">WebLA-Django</h3>
+            <p class="portfolio-desc">Plataforma web desarrollada en Django para mostrar información detallada sobre datos extraidos desde APIs externas y JSON locales.</p>
+          </div>
+          <div class="lang-info" data-langs='[
+            {"img":"img/habilidades/django.png","name":"Django","pct":"x"},
+            {"img":"img/habilidades/json.png","name":"JSON","pct":"x"},
+            {"img":"img/habilidades/python.png","name":"Python","pct":"25%"},
+            {"img":"img/habilidades/html.png","name":"HTML","pct":"25%"},
+            {"img":"img/habilidades/css.png","name":"CSS","pct":"40%"},
+            {"img":"img/habilidades/js.png","name":"JavaScript","pct":"10%"}
+          ]'>
+            <svg xmlns="http://www.w3.org/2000/svg" class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L21.75 12l-4.5 5.25M6.75 17.25L2.25 12l4.5-5.25M14.25 4.5l-4.5 15"/>
+            </svg>
+            <div class="lang-popup"></div>
+          </div>
+        </a>
+      </article>
+      
+      <!-- Proyecto 3: Portfolio -->
+      <article>
+        <a class="portfolio-item" href="https://github.com/Vimen1803/VictorMenjonPortfolio" target="_blank" rel="noopener noreferrer">
+          <img class="portfolio-banner" src="img/proyectos/foto2.png" alt="Proyecto 3">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">Portfolio - Victor Menjon</h3>
+            <p class="portfolio-desc">Portfolio el cual trata diferentes ámbitos, incluyendo un formulario de contacto y demás especialidades.</p>
+          </div>
+          <div class="lang-info" data-langs='[
+            {"img":"img/habilidades/html.png","name":"HTML","pct":"30%"},
+            {"img":"img/habilidades/css.png","name":"CSS","pct":"20%"},
+            {"img":"img/habilidades/js.png","name":"JavaScript","pct":"50%"}
+          ]'>
+            <svg xmlns="http://www.w3.org/2000/svg" class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L21.75 12l-4.5 5.25M6.75 17.25L2.25 12l4.5-5.25M14.25 4.5l-4.5 15"/>
+            </svg>
+            <div class="lang-popup"></div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Proyecto 4: GSenku -->
+       <article>
+        <a class="portfolio-item" href="https://github.com/Vimen1803/GSenku-cpp/tree/main" target="_blank" rel="noopener noreferrer">
+          <img class="portfolio-banner" src="img/proyectos/proyecto4.png" alt="Proyecto 4">
+          <div class="portfolio-content">
+            <h3 class="portfolio-title">GSenku - C++</h3>
+            <p class="portfolio-desc">Famoso juego chino recreado en C++. Con distintos tipos de tablero y movimientos habilitados, se manaeja a través de la terminal o un compilador de C++</p>
+          </div>
+          <div class="lang-info" data-langs='[
+            {"img":"img/habilidades/cpp.png","name":"C++","pct":"100%"}
+          ]'>
+            <svg xmlns="http://www.w3.org/2000/svg" class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.25 6.75L21.75 12l-4.5 5.25M6.75 17.25L2.25 12l4.5-5.25M14.25 4.5l-4.5 15"/>
+            </svg>
+            <div class="lang-popup"></div>
+          </div>
+        </a>
+       </article>
+    </div>
+  </div>
+</section>
+
+<section id="hab-apt">
+  <div class="wrap">
+    <h2 class="typewriter" data-typer="HABILIDADES"></h2>
+    <div class="ha-grid">
+      <article class="ha-item"><img src="img/habilidades/python.png" alt="Python"><h3>PYTHON</h3></article>
+      <article class="ha-item"><img src="img/habilidades/django.png" alt="Django"><h3>Django</h3></article>
+      <article class="ha-item"><img src="img/habilidades/json.png" alt="JSON"><h3>JSON</h3></article>
+      <article class="ha-item"><img src="img/habilidades/cpp.png" alt="C++"><h3>C++</h3></article>
+      <article class="ha-item"><img src="img/habilidades/html.png" alt="HTML"><h3>HTML 5</h3></article>
+      <article class="ha-item"><img src="img/habilidades/css.png" alt="CSS"><h3>CSS 3</h3></article>
+      <article class="ha-item"><img src="img/habilidades/js.png" alt="JAVASCRIPT"><h3>JAVASCRIPT</h3></article>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <h2 class="typewriter" data-typer="CONTACTO"></h2>
+    <div class="contact-grid">
+      <form onsubmit="event.preventDefault()">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="email" placeholder="Tu email" required>
+        <input type="text" name="asunto" placeholder="Asunto" required>
+        <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      <div class="link-list">
+        <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span>victormnjfan@gmail.com</span>
+        </a>
+        <a href="https://github.com/Vimen1803" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/víctor-menjón-fandos-925616293" target="_blank" rel="noopener noreferrer" class="contact-btn">
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="script.js"></script>
+
+</html>
+
+
+
+
+
+
