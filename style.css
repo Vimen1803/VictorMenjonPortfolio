@@ -575,9 +575,9 @@ button:hover { background: #e22020; }
 }
 
 @media(max-width: 420px){
-  .brand img{width: 100%;}
 	.brand h1{display: none;} 
 
 }
+
 
 
