@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="https://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://victormenjon.es/</loc>
+    <lastmod>2025-09-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <!-- Imagen del logo -->
+    <image:image>
+      <image:loc>https://victormenjon.es/img/logo-victor-menjon.png</image:loc>
+      <image:caption>Logo de Victor Menjon Portfolio</image:caption>
+      <image:title>Victor Menjon Portfolio Logo</image:title>
+    </image:image>
+
+  </url>
+
+</urlset>
